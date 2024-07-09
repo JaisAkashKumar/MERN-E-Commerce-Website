@@ -57,7 +57,9 @@ exports.createUser = async (req, res) => {
 exports.checkAuth = async (req, res) => {
   if (req.user) {
     res.json(req.user);
+    console.log("authorized user");
   } else {
     res.status(401);
+    console.log("Unauthorized user");
   }
 };
