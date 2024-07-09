@@ -190,7 +190,7 @@ server.post("/create-payment-intent", async (req, res) => {
 });
 
 // server.use(express.json()); //to parse req.body
-server.use("/products", isAuth(), productsRouter.router);
+server.use("/products", productsRouter.router);
 server.use("/brands", isAuth(), brandsRouter.router);
 server.use("/categories", isAuth(), categoriesRouter.router);
 server.use("/users", isAuth(), userRouter.router);
