@@ -66,6 +66,7 @@ server.post(
 
 //middlewares
 // server.use(cors({ exposedHeaders: ["X-Total-Count"] }));
+server.options("", cors(corsConfig));
 server.use(cors(corsConfig));
 //webhook
 // This is your test secret API key.

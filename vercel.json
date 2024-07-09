@@ -80,7 +80,8 @@
       },
       {
         "src": "/(.+)",
-        "dest": "build/$1"
+        "dest": "build/$1",
+        "methods" : ["GET", "POST", "PATCH", "DELETE","OPTIONS"]
       }
     ]
   }
