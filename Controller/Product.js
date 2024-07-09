@@ -37,7 +37,7 @@ exports.fetchProductsByFilter = async (req, res) => {
     query = query.sort({ [sortField]: order });
     totalProductsQuery = totalProductsQuery.sort({ [sortField]: order });
   }
-  const totalDocs = await totalProductsQuery.count().exec();
+  const totalDocs = await totalProductsQuery.countDocuments().exec();
   console.log({ totalDocs });
 
   if (req.query._page && req.query._per_page) {

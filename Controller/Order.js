@@ -30,7 +30,7 @@ exports.fetchAllOrders = async (req, res) => {
     query = query.sort({ [sortField]: sortOrder });
     totalOrdersQuery = totalOrdersQuery.sort({ [sortField]: sortOrder });
   }
-  const totalDocs = await totalOrdersQuery.count().exec();
+  const totalDocs = await totalOrdersQuery.countDocuments().exec();
   console.log({ totalDocs });
 
   if (req.query._page && req.query._per_page) {

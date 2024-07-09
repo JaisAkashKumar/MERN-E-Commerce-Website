@@ -14,7 +14,7 @@ exports.createCategory = async (req, res) => {
 
 exports.fetchCategories = async (req, res) => {
   let totalCategoriesQuery = Category.find({});
-  const totalDocs = await totalCategoriesQuery.count().exec();
+  const totalDocs = await totalCategoriesQuery.countDocuments().exec();
   console.log({ totalDocs });
   try {
     const docs = await Category.find({}).exec();

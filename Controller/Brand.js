@@ -14,7 +14,7 @@ exports.createBrand = async (req, res) => {
 
 exports.fetchBrands = async (req, res) => {
   let totalBrandsQuery = Brand.find({});
-  const totalDocs = await totalBrandsQuery.count().exec();
+  const totalDocs = await totalBrandsQuery.countDocuments().exec();
   console.log({ totalDocs });
   try {
     const docs = await Brand.find({}).exec();
