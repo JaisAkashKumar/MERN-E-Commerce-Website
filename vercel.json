@@ -59,11 +59,11 @@
         "dest": "index.js"
       },
       {
-        "src": "/orders",
+        "src": "/my-orders",
         "dest": "index.js"
       },
       {
-        "src": "/orders/(.*)",
+        "src": "/my-orders/(.*)",
         "dest": "index.js"
       },
       {
