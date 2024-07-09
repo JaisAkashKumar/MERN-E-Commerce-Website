@@ -22,6 +22,11 @@ const { User } = require("./Model/User");
 const crypto = require("crypto");
 const { isAuth, sanitizeUser, cookieExtractor } = require("./services/common");
 const path = require("path");
+const corsConfig = {
+  origin: "*",
+  Credential: true,
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+};
 main().catch((err) => console.log(err));
 
 //webhook  //baaki api ko json parser chahiye and isko raw parser chahiye jo ki iske andar he enabled hai isliye isko top pe rakha hai
@@ -60,7 +65,8 @@ server.post(
 );
 
 //middlewares
-server.use(cors({ exposedHeaders: ["X-Total-Count"] }));
+// server.use(cors({ exposedHeaders: ["X-Total-Count"] }));
+server.use(cors(corsConfig));
 //webhook
 // This is your test secret API key.
 // server.use(express.raw({ type: "application/json" }));
