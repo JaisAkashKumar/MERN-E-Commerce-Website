@@ -197,6 +197,10 @@ server.use("/users", isAuth(), userRouter.router);
 server.use("/auth", authRouter.router);
 server.use("/cart", isAuth(), cartRouter.router);
 server.use("/orders", isAuth(), orderRouter.router);
+//this line is to make react router work in case of other routes doesn't match
+server.get("*", (req, res) =>
+  res.sendFile(path.resolve("build", "index.html"))
+);
 async function main() {
   await mongoose.connect(process.env.MONGODB_URL);
   console.log("db started");
