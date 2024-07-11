@@ -28,13 +28,13 @@ exports.createUser = async (req, res) => {
       async function (err, hashedPassword) {
         const email = req.body.email;
         const existingUser = await User.findOne({ email });
-        if (existingUser) {
+        if (err) {
           return res.status(400).json({ error: "Email already exists" });
         }
-        if (err) {
-          console.error("Error hashing password:", err);
-          return res.status(500).json({ error: "Internal server error" });
-        }
+        // if (err) {
+        //   console.error("Error hashing password:", err);
+        //   return res.status(500).json({ error: "Internal server error" });
+        // }
         // console.log(req.body);
         const user = new User({ ...req.body, password: hashedPassword, salt }); //req.body ye frontend se aayega
         const doc = await user.save();
