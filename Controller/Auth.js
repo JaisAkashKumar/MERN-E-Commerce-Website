@@ -27,7 +27,7 @@ exports.createUser = async (req, res) => {
       "sha256",
       async function (err, hashedPassword) {
         const email = req.body.email;
-        const existingUser = await User.findOne({ email });
+        // const existingUser = await User.findOne({ email });
         if (err) {
           return res.status(400).json({ error: "Email already exists" });
         }
