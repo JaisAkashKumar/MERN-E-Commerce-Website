@@ -28,10 +28,8 @@ exports.createUser = async (req, res) => {
       async function (err, hashedPassword) {
         const email = req.body.email;
         const existingUser = await User.findOne({ email });
-        if (err) {
-          if (existingUser) {
-            return res.status(400).json({ error: "Email already exists" });
-          }
+        if (existingUser) {
+          return res.status(400).json({ error: "Email already exists" });
         }
         // if (err) {
         //   console.error("Error hashing password:", err);
