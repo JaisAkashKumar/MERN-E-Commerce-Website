@@ -165,11 +165,7 @@ passport.deserializeUser(function (user, cb) {
   });
 });
 
-//payment
-// This is your test secret API key.
-// const stripe = require("stripe")(
-//   "sk_test_51PYCzeRrfVX9rhJuiLxv3PxXhVv3QwYFKuA3Rmv4HkhCZmo7wti8FOp7Bv6SawzHfThjKeMw7R7oYtzWhMf7KDWc00Ss5IS3ve"
-// );
+ 
 
 server.post("/create-payment-intent", async (req, res) => {
   const { totalAmount, orderId } = req.body;
